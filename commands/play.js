@@ -24,9 +24,7 @@ module.exports = {
         default:
           url2play = 'http://ssb.digidrive.io/nope.mp3'
       }
-      const dispatcher = connection.play(url2play, {
-        volume: 0.5,
-      })
+      const dispatcher = connection.play(url2play, { volume: 1 })
 
       dispatcher.on('start', () => {
         message.client.user.setActivity('SimpleSoundBoard', { type: 'LISTENING' })
