@@ -10,19 +10,19 @@ module.exports = {
       let url2play = ''
       switch (sound) {
         case 'wow':
-          url2play = '../sounds/wow.mp3'
+          url2play = 'http://ssb.digidrive.io/wow.mp3'
           break
         case 'coucou':
-          url2play = '../sounds/coucou.mp3'
+          url2play = 'http://ssb.digidrive.io/coucou.mp3'
           break
         case 'zizi':
-          url2play = '../sounds/zizi.mp3'
+          url2play = 'http://ssb.digidrive.io/zizi.mp3'
           break
         case 'sad':
-          url2play = '../sounds/sad.mp3'
+          url2play = 'http://ssb.digidrive.io/sad.mp3'
           break
         default:
-          url2play = '../sounds/nope.mp3'
+          url2play = 'http://ssb.digidrive.io/nope.mp3'
       }
       const dispatcher = connection.play(url2play, {
         volume: 0.5,
