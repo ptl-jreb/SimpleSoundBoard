@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name"             : "ssb",
+      "script"           : "index.js",
+      "cwd"              : "."
+    }
+  ]
+}
