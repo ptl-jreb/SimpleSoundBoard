@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 module.exports = {
-  name: 'play',
+  name: 'p',
   description: 'Play requested sound.',
   async execute (message, args) {
     if (!message.guild) return
