@@ -1,5 +1,3 @@
-const ytdl = require('ytdl')
-
 module.exports = {
   name: 's',
   description: 'Stop youtube sound.',
