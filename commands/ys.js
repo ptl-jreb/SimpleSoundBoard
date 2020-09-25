@@ -21,7 +21,7 @@ module.exports = {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join()
 
-      if (!args[0]) message.channel.send('You need to provide a link!')
+      if (!args[0]) return message.channel.send('You need to provide a link!')
       const link = args[0]
 
       if (!servers[message.guild.id]) servers[message.guild.id] = { queue: [] }
