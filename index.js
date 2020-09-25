@@ -8,6 +8,8 @@ client.commands = new Discord.Collection()
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'))
 
+const servers = {}
+
 for (const file of commandFiles) {
   const command = require(`./commands/${file}`)
   client.commands.set(command.name, command)
@@ -26,7 +28,7 @@ client.on('message', message => {
   if (!client.commands.has(command)) return
 
   try {
-    client.commands.get(command).execute(message, args)
+    client.commands.get(command).execute(message, args, servers)
   } catch (error) {
     console.error(error)
     message.reply("Une erreur s'est produite pendant l'exécution de la commande !")
