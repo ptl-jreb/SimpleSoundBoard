@@ -13,6 +13,6 @@ module.exports = {
       console.log('stopped the queue')
     }
 
-    if (message.guild.connection) message.member.voice.channel.disconnect()
+    if (message.guild.connection) message.member.voice.channel.leave()
   }
 }

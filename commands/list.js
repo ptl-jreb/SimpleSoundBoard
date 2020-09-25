@@ -10,6 +10,10 @@ module.exports = {
     files.sort((a, b) => a.localeCompare(b))
     let str = ''
     files.forEach(file => (str = str + (str.length ? ', ' : '') + `${file.replace('.mp3', '')}`))
-    message.reply(`Sounds list: ${str}`)
+    if (message.member.voice.channel) {
+      message.channel.send(`Sounds list: ${str}`)
+    } else {
+      message.reply(`Sounds list: ${str}`)
+    }
   }
 }
