@@ -8,12 +8,30 @@ module.exports = {
     if (!message.guild) return
     const files = fs.readdirSync(path.join(__dirname, '..', 'sounds'))
     files.sort((a, b) => a.localeCompare(b))
-    let str = ''
-    files.forEach(file => (str = str + (str.length ? "\n " : '') + `${file.replace('.mp3', '')}`))
+    let str = '' 
+   
+    let fields = {}
+
+    files.forEach((element) => {
+      console.log(element)
+      const firstChart = element.charAt(0)
+      if(!fields[firstChart]) fields[firstChart] = []
+      fields[firstChart] = `${fields[firstChart]}, ${element.replace('.mp3', '')}`
+    })
+    // inside a command, event listener, etc.
+    const exampleEmbed = new Discord.MessageEmbed()
+    .setColor('#0099ff')
+    .setTitle('Sounds list')   
+    .setAuthor('ddgll', 'Tucsale')
+    .setDescription('Some description here')
+    .addFields(fields)
+    .setFooter('Copyright or not, that\'s the question ...');
+
+    
     if (message.member.voice.channel) {
-      message.channel.send(`Sounds list: ${str}`)
+      channel.send(exampleEmbed)
     } else {
-      message.reply(`Sounds list: ${str}`)
+      channel.reply(exampleEmbed)
     }
   }
 }
