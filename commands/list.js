@@ -9,7 +9,7 @@ module.exports = {
     const files = fs.readdirSync(path.join(__dirname, '..', 'sounds'))
     files.sort((a, b) => a.localeCompare(b))
     let str = ''
-    files.forEach(file => (str = str + (str.length ? ', ' : '') + `${file.replace('.mp3', '')}`))
+    files.forEach(file => (str = str + (str.length ? "\n " : '') + `${file.replace('.mp3', '')}`))
     if (message.member.voice.channel) {
       message.channel.send(`Sounds list: ${str}`)
     } else {
