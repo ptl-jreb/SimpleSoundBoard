@@ -14,7 +14,6 @@ module.exports = {
     let fields = {}
 
     files.forEach((element) => {
-      console.log(element)
       const firstChart = element.charAt(0)
       if(!fields[firstChart]) fields[firstChart] = []
       fields[firstChart] = `${fields[firstChart]}, ${element.replace('.mp3', '')}`
@@ -30,9 +29,9 @@ module.exports = {
 
     
     if (message.member.voice.channel) {
-      channel.send(exampleEmbed)
+      message.channel.send(exampleEmbed)
     } else {
-      channel.reply(exampleEmbed)
+      message.reply(exampleEmbed)
     }
   }
 }
