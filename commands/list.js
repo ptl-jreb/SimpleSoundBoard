@@ -24,8 +24,7 @@ module.exports = {
     .setTitle('Sounds list')   
     .setAuthor('ddgll', 'Tucsale')
     .setDescription('Some description here')
-    .addFields(fields)
-    .setFooter('Copyright or not, that\'s the question ...');
+    .addFields(fields);
 
     
     if (message.member.voice.channel) {
