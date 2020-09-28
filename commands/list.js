@@ -22,9 +22,10 @@ module.exports = {
     const exampleEmbed = new Discord.MessageEmbed()
     .setColor('#0099ff')
     .setTitle('Sounds list')   
-    .setAuthor('ddgll', 'Tucsale')
+    .setAuthor('ddgll | TucSale')
     .setDescription('Some description here')
-    .addFields(fields);
+    .addFields(fields)
+    .setFooter('Copyright or not, that\'s the question ...');
 
     
     if (message.member.voice.channel) {
