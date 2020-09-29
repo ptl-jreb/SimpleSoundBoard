@@ -25,12 +25,11 @@ module.exports = {
     // inside a command, event listener, etc.
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor('#0099ff')
-      .setTitle('Sounds list')
+      .setTitle('Liste des sonds disponibles ! SPONIBLES !!')
       .setAuthor('ddgll | TucSale')
-      .setDescription('Some description here')
+      .setDescription('Voici la liste des sons à votre disposition, si vous souhaitez en ajouter, tappez !p couilles')
       .addFields(fields2)
-      .setFooter('Copyright or not, that\'s the question ...');
-
+      .setFooter('Copyright or not, that\'s the question ...')
 
     if (message.member.voice.channel) {
       message.channel.send(exampleEmbed)
