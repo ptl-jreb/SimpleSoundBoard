@@ -18,6 +18,7 @@ module.exports = {
       } else {
         const url2play = `http://ssb.digidrive.io/${sound}.mp3`
         const dispatcher = connection.play(url2play, { volume: 1 })
+        if (sound === 'rickrolled') message.channel.send('You\'ve been RICKROLLED !')
         dispatcher.on('start', () => {
           message.client.user.setActivity('SimpleSoundBoard', { type: 'LISTENING' })
         })
