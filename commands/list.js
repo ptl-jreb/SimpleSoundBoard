@@ -14,15 +14,14 @@ module.exports = {
     // let str = ''
 
     files.forEach((element) => {
+      if (element === 'rickrolled.mp3') return
       const firstChart = element.charAt(0).toUpperCase()
-      if(!fields[firstChart]) fields[firstChart] = element.replace('.mp3', '')
-      else fields[firstChart] = `${fields[firstChart]}, ${element.replace('.mp3', '')}`
+      fields[firstChart] = !fields[firstChart] ? element.replace('.mp3', '') : `${fields[firstChart]}, ${element.replace('.mp3', '')}`
     })
     for (let key in fields) {
-      fields2.push({name:key, value:fields[key]})
+      fields2.push({ name: key, value: fields[key] })
     }
-    
-    console.log(fields2)
+
     // inside a command, event listener, etc.
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor('#0099ff')
