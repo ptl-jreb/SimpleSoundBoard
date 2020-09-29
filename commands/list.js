@@ -25,7 +25,7 @@ module.exports = {
     // inside a command, event listener, etc.
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor('#0099ff')
-      .setTitle('Liste des sonds disponibles ! SPONIBLES !!')
+      .setTitle('Liste des sons disponibles ! SPONIBLES !!')
       .setAuthor('ddgll | TucSale')
       .setDescription('Voici la liste des sons à votre disposition, si vous souhaitez en ajouter, tappez !p couilles')
       .addFields(fields2)
