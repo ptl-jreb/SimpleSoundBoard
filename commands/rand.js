@@ -2,8 +2,8 @@ const fs = require('fs')
 const path = require('path')
 
 module.exports = {
-  name: 'p',
-  description: 'Play requested sound.',
+  name: 'rand',
+  description: 'Play random sound.',
   async execute (message, args) {
     if (!message.guild) return
 
