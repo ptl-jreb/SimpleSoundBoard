@@ -11,7 +11,7 @@ module.exports = {
       const connection = await message.member.voice.channel.join()
       if (!args[0]) message.channel.send('You need to provide a sound code!')
 
-      const sound = (Math.floor(Math.random() * Math.floor(10)) > 8) ? 'rickrolled' : args[0]
+      const sound = (Math.floor(Math.random() * Math.floor(20)) > 17) ? 'rickrolled' : args[0]
 
       if (!fs.existsSync(path.join(__dirname, '..', 'sounds', sound + '.mp3'))) {
         message.channel.send('Sound does not exists !')
