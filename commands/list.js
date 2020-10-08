@@ -14,7 +14,7 @@ module.exports = {
     // let str = ''
 
     files.forEach((element) => {
-      if (element === 'rickrolled.mp3') return
+      if (element === 'rickrolled.mp3' || element === 'smb2.mp3') return
       const firstChart = element.charAt(0).toUpperCase()
       fields[firstChart] = !fields[firstChart] ? element.replace('.mp3', '') : `${fields[firstChart]}, ${element.replace('.mp3', '')}`
     })
