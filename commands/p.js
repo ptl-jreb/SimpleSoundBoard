@@ -11,7 +11,7 @@ module.exports = {
       const connection = await message.member.voice.channel.join()
       if (!args[0]) message.channel.send('You need to provide a sound code!')
 
-      let sound = (Math.floor(Math.random() * Math.floor(20)) > 17) ? 'rickrolled' : args[0]
+      let sound = (Math.floor(Math.random() * Math.floor(20)) > 18) ? 'rickrolled' : args[0]
 
       if (sound === 'smb') sound = (Math.floor(Math.random() * Math.floor(20)) > 10) ? 'smb' : 'smb2'
 
