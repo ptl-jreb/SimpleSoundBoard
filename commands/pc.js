@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const categories = require('categories.json')
+const categories = require('../categories.json')
 
 module.exports = {
   name: 'pc',
