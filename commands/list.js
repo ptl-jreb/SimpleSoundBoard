@@ -36,13 +36,23 @@ module.exports = {
       .setAuthor('ddgll | TucSale')
       .setDescription('')
       .addFields(fields2)
+      .setFooter('Copyright or not, that\'s the question ...')
+
+    // inside a command, event listener, etc.
+    const exampleEmbedCat = new Discord.MessageEmbed()
+      .setColor('#0099ff')
+      .setTitle('Liste des catégories disponibles ! SPONIBLES !!')
+      .setAuthor('ddgll | TucSale')
+      .setDescription('')
       .addFields(fieldsCat)
       .setFooter('Copyright or not, that\'s the question ...')
 
     if (message.member.voice.channel) {
       message.channel.send(exampleEmbed)
+      message.channel.send(exampleEmbedCat)
     } else {
       message.reply(exampleEmbed)
+      message.reply(exampleEmbedCat)
     }
   }
 }
