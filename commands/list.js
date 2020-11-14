@@ -1,8 +1,10 @@
 const fs = require('fs')
 const path = require('path')
 const Discord = require('discord.js')
-let fields = {}
-let fields2 = []
+const categories = require('../categories.json')
+const fields = {}
+const fields2 = []
+const fieldsCat = []
 
 module.exports = {
   name: 'list',
@@ -22,6 +24,11 @@ module.exports = {
       fields2.push({ name: key, value: fields[key] })
     }
 
+    const keys = Object.keys(categories).sort((a, b) => a.localeCompare(b))
+    keys.forEach(k => {
+      fieldsCat.push({ name: k, value: categories[k].sort((a, b) => a.localeCompare(b)).join(', ') })
+    })
+
     // inside a command, event listener, etc.
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor('#0099ff')
@@ -29,6 +36,10 @@ module.exports = {
       .setAuthor('ddgll | TucSale')
       .setDescription('')
       .addFields(fields2)
+      .setTitle('Liste des catégories disponibles ! SPONIBLES !!')
+      .setAuthor('ddgll | TucSale')
+      .setDescription('')
+      .addFields(fieldsCat)
       .setFooter('Copyright or not, that\'s the question ...')
 
     if (message.member.voice.channel) {
