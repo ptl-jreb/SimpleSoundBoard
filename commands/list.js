@@ -24,7 +24,8 @@ module.exports = {
       fields2.push({ name: key, value: fields[key] })
     }
 
-    const keys = Object.keys(categories).sort((a, b) => a.localeCompare(b))
+    const keys = []
+    keys.push(...Object.keys(categories).sort((a, b) => a.localeCompare(b)))
     keys.forEach(k => {
       fieldsCat.push({ name: k, value: categories[k].sort((a, b) => a.localeCompare(b)).join(', ') })
     })
