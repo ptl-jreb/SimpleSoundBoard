@@ -1,3 +1,9 @@
 {
-  "cafe": ["cafe", "coffee-coffee", "coffee-time"]
+  "aurevoir": ["au_revoir_final", "bye"],
+  "bonjour": ["coucou", "et_ben_bonjour", "salut", "salut2", "yo_les_nabots", "yo_trasheurs", "wazzup", "slt_les_loosers"],
+  "cafe": ["cafe", "coffee-coffee", "coffee-time"],
+  "gordos": ["badgers", "codecul", "connards", "titanic", "mission", "rickrolled", "funeral", "trollolol", "vuvuzela"],
+  "non": ["nein_nein_nein", "nope"],
+  "oui": ["ok", "okay_tout_court", "oui_d_accord", "si_chritiano_ronaldo"],
+  "tg": ["tg", "shutup", "taisez_vous_final"]
 }
