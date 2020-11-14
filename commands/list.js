@@ -36,9 +36,6 @@ module.exports = {
       .setAuthor('ddgll | TucSale')
       .setDescription('')
       .addFields(fields2)
-      .setTitle('Liste des catégories disponibles ! SPONIBLES !!')
-      .setAuthor('ddgll | TucSale')
-      .setDescription('')
       .addFields(fieldsCat)
       .setFooter('Copyright or not, that\'s the question ...')
 
