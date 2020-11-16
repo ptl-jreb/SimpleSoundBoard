@@ -6,7 +6,7 @@ const fields = {}
 const fields2 = []
 
 module.exports = {
-  name: 'list',
+  name: 'clist',
   description: 'List categories.',
   async execute (message, args) {
     if (!message.guild) return
