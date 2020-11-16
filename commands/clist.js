@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const Discord = require('discord.js')
-const categories = require('../categories.js')
+const categories = require('../categories.json')
 const fields = {}
 const fields2 = []
 
