@@ -14,7 +14,7 @@ module.exports = {
     keys.sort((a, b) => a.localeCompare(b))
 
     keys.forEach((element) => {
-      fields[element] = categories[element].sort((a, b) => a.localeCompare(b))
+      fields[element] = categories[element].sort((a, b) => a.localeCompare(b)).join(', ')
     })
     for (let key in fields) {
       fields2.push({ name: key, value: fields[key] })
