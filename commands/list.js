@@ -2,7 +2,8 @@ const fs = require('fs')
 const path = require('path')
 const Discord = require('discord.js')
 const fields = {}
-const fields2 = []
+const fieldsAL = []
+const fieldsMZ = []
 
 module.exports = {
   name: 'list',
@@ -19,7 +20,11 @@ module.exports = {
       fields[firstChart] = !fields[firstChart] ? element.replace('.mp3', '') : `${fields[firstChart]}, ${element.replace('.mp3', '')}`
     })
     for (let key in fields) {
-      fields2.push({ name: key, value: fields[key] })
+      if (key < 'M') {
+        fieldsAL.push({ name: key, value: fields[key] })
+      } else {
+        fieldsMZ.push({ name: key, value: fields[key] })
+      }
     }
 
     // inside a command, event listener, etc.
@@ -28,7 +33,21 @@ module.exports = {
       .setTitle('Liste des sons disponibles ! SPONIBLES !!')
       .setAuthor('ddgll | TucSale')
       .setDescription('')
-      .addFields(fields2)
+      .addFields(fieldsAL)
+      .setFooter('Copyright or not, that\'s the question ...')
+
+    if (message.member.voice.channel) {
+      message.channel.send(exampleEmbed)
+    } else {
+      message.reply(exampleEmbed)
+    }
+    // inside a command, event listener, etc.
+    const exampleEmbed = new Discord.MessageEmbed()
+      .setColor('#0099ff')
+      .setTitle('Liste des sons disponibles ! SPONIBLES !!')
+      .setAuthor('ddgll | TucSale')
+      .setDescription('')
+      .addFields(fieldsMZ)
       .setFooter('Copyright or not, that\'s the question ...')
 
     if (message.member.voice.channel) {
