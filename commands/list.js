@@ -42,7 +42,7 @@ module.exports = {
       message.reply(exampleEmbed)
     }
     // inside a command, event listener, etc.
-    const exampleEmbed = new Discord.MessageEmbed()
+    const exampleEmbedMZ = new Discord.MessageEmbed()
       .setColor('#0099ff')
       .setTitle('Liste des sons disponibles ! SPONIBLES !!')
       .setAuthor('ddgll | TucSale')
@@ -51,9 +51,9 @@ module.exports = {
       .setFooter('Copyright or not, that\'s the question ...')
 
     if (message.member.voice.channel) {
-      message.channel.send(exampleEmbed)
+      message.channel.send(exampleEmbedMZ)
     } else {
-      message.reply(exampleEmbed)
+      message.reply(exampleEmbedMZ)
     }
   }
 }
