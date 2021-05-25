@@ -5,7 +5,7 @@ const categories = require('../categories.json')
 
 
 module.exports = {
-  name: 'p',
+  name: 'q',
   description: 'Play requested sound.',
   async execute (message, args) {
     if (!message.guild) return
