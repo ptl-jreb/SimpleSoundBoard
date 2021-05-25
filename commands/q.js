@@ -16,7 +16,7 @@ module.exports = {
 
       let category = categories[args[0]]
       if (category && category.length) {
-        let sound = (Math.floor(Math.random() * Math.floor(20)) > 18) ? 'rickrolled' : category[Math.floor(Math.random() * category.length)]
+        let sound = (Math.floor(Math.random() * Math.floor(20)) > 19) ? 'rickrolled' : category[Math.floor(Math.random() * category.length)] // mouhaha
         if (!fs.existsSync(path.join(__dirname, '..', 'sounds', sound + '.mp3'))) {
           message.channel.send('Sound does not exists !')
         } else {
