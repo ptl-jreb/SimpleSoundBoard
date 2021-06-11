@@ -1,8 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const categories = require('../categories.json')
-
-
+const { url } = require('../config.json')
 
 module.exports = {
   name: 'q',
@@ -20,7 +19,7 @@ module.exports = {
         if (!fs.existsSync(path.join(__dirname, '..', 'sounds', sound + '.mp3'))) {
           message.channel.send('Sound does not exists !')
         } else {
-          const url2play = `http://ssb.digidrive.io/${sound}.mp3`
+          const url2play = `${url}/${sound}.mp3`
           const dispatcher = connection.play(url2play, { volume: 1 })
           if (sound === 'rickrolled') message.channel.send('You\'ve been RICKROLLED !')
           dispatcher.on('start', () => {
@@ -42,7 +41,7 @@ module.exports = {
         if (!fs.existsSync(path.join(__dirname, '..', 'sounds', sound + '.mp3'))) {
           message.channel.send('Sound does not exists !')
         } else {
-          const url2play = `http://ssb.digidrive.io/${sound}.mp3`
+          const url2play = `${url}/${sound}.mp3`
           const dispatcher = connection.play(url2play, { volume: 1 })
           if (sound === 'rickrolled') message.channel.send('You\'ve been RICKROLLED !')
           dispatcher.on('start', () => {

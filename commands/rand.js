@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const { url } = require('../config.json')
 
 module.exports = {
   name: 'rand',
@@ -12,7 +13,7 @@ module.exports = {
 
       const files = fs.readdirSync(path.join(__dirname, '..', 'sounds'))
       const index = Math.floor(Math.random() * Math.floor(files.length))
-      const url2play = `http://ssb.digidrive.io/${files[index]}`
+      const url2play = `${url}/${files[index]}`
       const dispatcher = connection.play(url2play, { volume: 1 })
       dispatcher.on('start', () => {
         message.client.user.setActivity('SimpleSoundBoard', { type: 'LISTENING' })
