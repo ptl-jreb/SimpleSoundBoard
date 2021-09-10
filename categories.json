@@ -3,7 +3,7 @@
   "bonjour": ["coucou", "et_ben_bonjour", "salut", "salut2", "salut3", "yo_les_nabots", "yo_trasheurs", "wazzup", "slt_les_loosers", "bonjourpasha", "yang-helloo", "hello-there", "alo", "bonjourno", "goodmornviet", "goodmorning"],
   "cafe": ["cafe", "coffee-coffee", "coffee-time", "cafew", "amandacoffee"],
   "gordos": ["badgers", "codecul", "connards", "titanic", "mission", "rickrolled", "funeral", "trollolol", "vuvuzela", "zizi", "moskau", "snoop-dogg-smoke-weed-everyday"],
-  "insulte" : ["connards", "connasse", "cons", "ntm", "gentil"],
+  "insulte" : ["connards", "connasse", "cons", "ntm", "gentil", "poli"],
   "merci": ["arigato", "merci-beaucoup", "merci-du-conseil-gamin", "merci-la-gueuse"], 
   "non": ["nein_nein_nein", "nope"],
   "oui": ["ok", "okay_tout_court", "oui_d_accord", "si_chritiano_ronaldo", "yes", "yes-yes-yes-yes-yes", "weee"],
@@ -15,6 +15,6 @@
   "music":  ["zizi", "titanic", "trollolol", "run", "robin", "moskau", "mission", "jeopardy", "ameno" ,"badgers", "dejavu", "goodmorning"],
   "attente": ["jeopardy", "caca_paul", "ascenseur"],
   "bravo": ["hallelujah", "cbeau", "bravo"],
-  "chier": ["caca_paul", "chier"],
+  "chier": ["caca_paul", "chier", "chier2"],
   "lol": ["lol1", "lol2", "lol3", "lol4", "lol5"]
 }
