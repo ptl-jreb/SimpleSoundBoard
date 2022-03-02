@@ -1,4 +1,4 @@
-const { blaguesApiToken } = require('./config.json')
+const { blaguesApiToken } = require('../config.json')
 
 const Discord = require('discord.js')
 const BlaguesAPI = require('blagues-api')
