@@ -47,7 +47,7 @@ module.exports = {
     }
 
     if (blague) {
-      message.channel.send(`${blague.joke}\n\n\n\n\n${blague.answer}`, { tts: true })
+      message.channel.send(`${blague.joke}                                   ${blague.answer}`, { tts: true })
     }
   }
 }
