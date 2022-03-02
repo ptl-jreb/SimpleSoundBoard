@@ -49,10 +49,10 @@ module.exports = {
     }
 
     if (blague) {
-      message.channel.send('/tts ' + blague.joke)
+      message.channel.send(blague.joke, { tts: true })
       setTimeout(() => {
-        message.channel.send('/tts ' + blague.answer)
-      }, 3000)
+        message.channel.send(blague.answer, { tts: true })
+      }, 5000)
     }
   }
 }
