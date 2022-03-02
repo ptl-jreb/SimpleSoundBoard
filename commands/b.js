@@ -6,15 +6,15 @@ const BlaguesAPI = require('blagues-api')
 const blagues = new BlaguesAPI(blaguesApiToken)
 
 // https://github.com/Blagues-API/blagues-api/blob/dev/src/typings.ts
-const categories = {
-  list: 'Affiche ce message',
-  global: 'Tout public',
-  dark: 'Humour noir',
-  dev: 'Blague de dev',
-  limit: 'Blague 18+',
-  beauf: 'Humour beauf',
-  blondes: 'Blagues de blondes'
-}
+const categories = [
+  { name: 'list', value: 'Affiche ce message' },
+  { name: 'global', value: 'Tout public' },
+  { name: 'dark', value: 'Humour noir' },
+  { name: 'dev', value: 'Blague de dev' },
+  { name: 'limit', value: 'Blague 18+' },
+  { name: 'beauf', value: 'Humour beauf' },
+  { name: 'blondes', value: 'Blagues de blondes' }
+]
 
 module.exports = {
   name: 'b',
@@ -26,16 +26,14 @@ module.exports = {
 
     let blague = null
     if (category) {
-      const exists = Object.keys(categories).includes(category)
+      const exists = categories.some(c => c.name === category)
       if (exists) {
         if (category === 'list') {
           const listEmbed = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setTitle('Liste des catégories de blagues')
             .setDescription('')
-            .addFields(categories.map((id, desc) => {
-              return { name: id, value: desc }
-            }))
+            .addFields(categories)
 
           message.channel.send(listEmbed)
         } else {
