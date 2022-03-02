@@ -9,10 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/opus": "^0.5.3",
     "blagues-api": "^2.1.0",
     "discord.js": "^12.3.1",
     "ffmpeg-static": "^4.2.7",
-    "opusscript": "0.0.7",
     "ytdl-core": "^3.3.0"
   }
 }
