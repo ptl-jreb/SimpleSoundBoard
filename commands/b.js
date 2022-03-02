@@ -47,10 +47,7 @@ module.exports = {
     }
 
     if (blague) {
-      message.channel.send(blague.joke, { tts: true })
-      setTimeout(() => {
-        message.channel.send(blague.answer, { tts: true })
-      }, 5000)
+      message.channel.send(`${blague.joke}\n\n\n\n\n${blague.answer}`, { tts: true })
     }
   }
 }
