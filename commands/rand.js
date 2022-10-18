@@ -10,7 +10,7 @@ module.exports = {
 
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join()
-      console.log('args', args)
+
       const files = fs.readdirSync(path.join(__dirname, '..', 'sounds'))
       const index = Math.floor(Math.random() * Math.floor(files.length))
       const url2play = `${url}/${files[index]}`
