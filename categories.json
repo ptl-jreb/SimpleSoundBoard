@@ -6,9 +6,11 @@
     "aurevoir",
     "xp",
     "byebye",
-    "bye-frozen"
+    "bye-frozen",
+    "human_dead"
   ],
   "bonjour": [
+    "pret_a_travailler",
     "coucou",
     "et_ben_bonjour",
     "salut",
@@ -52,7 +54,8 @@
     "vuvuzela",
     "zizi",
     "moskau",
-    "snoop-dogg-smoke-weed-everyday"
+    "snoop-dogg-smoke-weed-everyday",
+    "ziggurat"
   ],
   "insulte": [
     "connards",
