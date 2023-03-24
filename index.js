@@ -1,10 +1,17 @@
 const fs = require('fs')
-const Discord = require('discord.js')
+const { Client, Collection, Events, GatewayIntentBits } = require('discord.js')
 
 const { prefix, token } = require('./config.json')
 
-const client = new Discord.Client()
-client.commands = new Discord.Collection()
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildVoiceStates
+  ]
+})
+client.commands = new Collection()
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'))
 
@@ -15,11 +22,11 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command)
 }
 
-client.once('ready', () => {
+client.once(Events.ClientReady, () => {
   console.log('Ready!')
 })
 
-client.on('message', message => {
+client.on(Events.MessageCreate, message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return
 
   const args = message.content.slice(prefix.length).split(/ +/)
