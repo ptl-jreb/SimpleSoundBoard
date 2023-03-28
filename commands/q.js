@@ -22,6 +22,7 @@ module.exports = {
         let sound = (Math.floor(Math.random() * Math.floor(20)) > 19) ? 'rickrolled' : category[Math.floor(Math.random() * category.length)] // mouhaha
         if (!fs.existsSync(path.join(__dirname, '..', 'sounds', sound + '.mp3'))) {
           message.channel.send('Sound does not exists !')
+          connection.destroy()
         } else {
           const url2play = `${url}/${sound}.mp3`
 
@@ -50,6 +51,7 @@ module.exports = {
         let sound = (Math.floor(Math.random() * Math.floor(20)) > 18) ? 'rickrolled' : args[0]
         if (!fs.existsSync(path.join(__dirname, '..', 'sounds', sound + '.mp3'))) {
           message.channel.send('Sound does not exists !')
+          connection.destroy()
         } else {
           const url2play = `${url}/${sound}.mp3`
   
