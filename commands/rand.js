@@ -28,12 +28,12 @@ module.exports = {
       })
       player.on('error', () => {
         message.channel.send('Je n\'ai pas réussi à lire cette vidéo !')
-        player.destroy()
-        voiceChannel.leave()
+        player.stop()
+        connection.destroy()
       })
       player.on(AudioPlayerStatus.Idle, () => {
-        player.destroy()
-        voiceChannel.leave()
+        player.stop()
+        connection.destroy()
       })
     } else {
       message.reply('You need to join a voice channel first!')
