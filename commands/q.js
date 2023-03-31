@@ -1,5 +1,7 @@
 const fs = require('fs')
 const path = require('path')
+const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus } = require('@discordjs/voice')
+
 const categories = require('../categories.json')
 const { url } = require('../config.json')
 
@@ -9,8 +11,10 @@ module.exports = {
   async execute (message, args) {
     if (!message.guild) return
 
-    if (message.member.voice.channel) {
-      const connection = await message.member.voice.channel.join()
+
+    const voiceChannel = message.member.voice.channel
+    if (voiceChannel) {
+      const connection = joinVoiceChannel({ channelId: voiceChannel.id, guildId: voiceChannel.guild.id, adapterCreator: voiceChannel.guild.voiceAdapterCreator})
       if (!args[0]) message.channel.send('You need to provide a sound code!')
 
       let category = categories[args[0]]
@@ -18,21 +22,28 @@ module.exports = {
         let sound = (Math.floor(Math.random() * Math.floor(20)) > 19) ? 'rickrolled' : category[Math.floor(Math.random() * category.length)] // mouhaha
         if (!fs.existsSync(path.join(__dirname, '..', 'sounds', sound + '.mp3'))) {
           message.channel.send('Sound does not exists !')
+          connection.destroy()
         } else {
           const url2play = `${url}/${sound}.mp3`
-          const dispatcher = connection.play(url2play, { volume: 1 })
+
+          const player = createAudioPlayer()
+          const resource = createAudioResource(url2play)
+          player.play(resource)
+          connection.subscribe(player)
+
           if (sound === 'rickrolled') message.channel.send('You\'ve been RICKROLLED !')
-          dispatcher.on('start', () => {
+
+          player.on(AudioPlayerStatus.Playing, () => {
             message.client.user.setActivity('SimpleSoundBoard', { type: 'LISTENING' })
           })
-          dispatcher.on('error', () => {
-            message.channel.send('Je n\'ai pas réussi à lire cette vidéo !')
-            dispatcher.destroy()
-            message.member.voice.channel.leave()
+          player.on('error', () => {
+            message.channel.send('Je n\'ai pas réussi à lire ce son :(')
+            player.stop()
+            connection.destroy()
           })
-          dispatcher.on('finish', () => {
-            dispatcher.destroy()
-            message.member.voice.channel.leave()
+          player.on(AudioPlayerStatus.Idle, () => {
+            player.stop()
+            connection.destroy()
           })
         }
       } else {
@@ -40,21 +51,28 @@ module.exports = {
         let sound = (Math.floor(Math.random() * Math.floor(20)) > 18) ? 'rickrolled' : args[0]
         if (!fs.existsSync(path.join(__dirname, '..', 'sounds', sound + '.mp3'))) {
           message.channel.send('Sound does not exists !')
+          connection.destroy()
         } else {
           const url2play = `${url}/${sound}.mp3`
-          const dispatcher = connection.play(url2play, { volume: 1 })
+  
+          const player = createAudioPlayer()
+          const resource = createAudioResource(url2play)
+          player.play(resource)
+          connection.subscribe(player)
+
           if (sound === 'rickrolled') message.channel.send('You\'ve been RICKROLLED !')
-          dispatcher.on('start', () => {
+
+          player.on(AudioPlayerStatus.Playing, () => {
             message.client.user.setActivity('SimpleSoundBoard', { type: 'LISTENING' })
           })
-          dispatcher.on('error', () => {
-            message.channel.send('Je n\'ai pas réussi à lire cette vidéo !')
-            dispatcher.destroy()
-            message.member.voice.channel.leave()
+          player.on('error', () => {
+            message.channel.send('Je n\'ai pas réussi à lire ce son :(')
+            player.stop()
+            connection.destroy()
           })
-          dispatcher.on('finish', () => {
-            dispatcher.destroy()
-            message.member.voice.channel.leave()
+          player.on(AudioPlayerStatus.Idle, () => {
+            player.stop()
+            connection.destroy()
           })
         }
       }
